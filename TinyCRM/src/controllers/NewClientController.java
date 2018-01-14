@@ -23,13 +23,6 @@ public class NewClientController extends ClientController {
 		super(view, model);
 	}
 
-	public void validateCompany() {
-		ClientTCRMView view = (ClientTCRMView) getView();
-		if (view.getTextCompany().trim().length() == 0) {
-			addValidationError("Company", "Empty Company. Required Field.");
-		}
-	}
-	
 	@Override
 	public void validateTelephone() {
 		ClientTCRMView view = (ClientTCRMView) getView();
@@ -73,16 +66,11 @@ public class NewClientController extends ClientController {
 			addValidationError("Email", "Invalid Email. Required Field.");
 		}
 	}
+	
 	public void validateWebsite() {
 		ClientTCRMView view = (ClientTCRMView) getView();
 		if (view.getTextWebsite().trim().length() == 0) {
 			addValidationError("Website", "Empty Website. Required Field.");
-		}
-	}
-	public void validateFacebook() {
-		ClientTCRMView view = (ClientTCRMView) getView();
-		if (view.getTextFacebook().trim().length() == 0) {
-			addValidationError("Facebook", "Empty Facebook. Required Field.");
 		}
 	}
 }
