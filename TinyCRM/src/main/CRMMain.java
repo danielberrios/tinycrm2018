@@ -9,11 +9,14 @@ import controllers.ClientController;
 import controllers.ContactController;
 import controllers.NewClientController;
 import controllers.NewContactController;
+import controllers.OpportunitiesController;
 import models.CRMModel;
 import models.ClientModel;
 import models.ContactModel;
+import models.OpportunitiesModel;
 import swingViews.ClientSwingView;
 import swingViews.ContactSwingView;
+import swingViews.OpportunitiesSwingView;
 import swingViews.SwingView;
 
 public class CRMMain {
@@ -29,6 +32,12 @@ public class CRMMain {
 	// Contacts module has relationship with Clients module so we pass the Clients model object to the Contacts controller
 	public static CRMController contactController = new NewContactController(contactView, contactModel, clientModel); 
 	
+	
+	// Create Oportunities module MVC objects
+	public static SwingView opportunitiesView = new OpportunitiesSwingView();
+	public static CRMModel opportunitiesModel = new OpportunitiesModel();
+	public static CRMController opportunitiesController = new OpportunitiesController(opportunitiesView, opportunitiesModel, clientModel);
+
 	private static String currentModule;
 	private static SwingView currentView;
 
@@ -41,9 +50,12 @@ public class CRMMain {
 
 		contactView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
 		clientView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
+		opportunitiesView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
+		
 
 		mapModuleToView.put("Contacts", contactView);
 		mapModuleToView.put("Clients", clientView);
+		mapModuleToView.put("Opportunities", opportunitiesView);
 
 		mapModuleToIndex.put("Contacts", 0);
 		mapModuleToIndex.put("Clients", 1);
@@ -55,9 +67,13 @@ public class CRMMain {
 
 		contactController.doInit();
 		contactController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
+		
+		opportunitiesController.doInit();
+		opportunitiesController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
+
 
 		//contactView.setModuleSelected(mapModuleToIndex.get("Contacts"));
-		switchToModule("Contacts"); // Initially open the Contacts module
+		switchToModule("Opportunities"); // Initially open the Contacts module
 
 	}
 
