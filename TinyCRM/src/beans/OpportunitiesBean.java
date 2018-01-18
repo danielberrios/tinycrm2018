@@ -2,28 +2,27 @@ package beans;
 
 public class OpportunitiesBean extends CRMBean {
 
-	private String saleDescription;
-	private String dollarQuantity; //maybe it should be a double?
+	private String Description;
+	private String dollarQuantity;
 	private String date; //maybe should be stored in numbers? or like a string but we parse it?
 	private long client;
-//	private long saleStatus; //lo puse como long emulando lo de client, assuming que asi bregaria para hacer un drop down menu thing like the client thing
-	private String saleStatus;
+	private String Status;
 	
 	public OpportunitiesBean(long id) {
 		super(id);
 		date = "";
-		saleDescription = "";
+		Description = "";
 		dollarQuantity = "";
 		client = -1;
-		saleStatus = "";
+		Status = "";
 	}
 	
-	public String getSaleDescription() {
-		return saleDescription;
+	public String getDescription() {
+		return Description;
 	}
 
-	public void setSaleDescription(String saleDescription) {
-		this.saleDescription = saleDescription;
+	public void setDescription(String Description) {
+		this.Description = Description;
 	}
 
 	public String getDollarQuantity() {
@@ -42,12 +41,12 @@ public class OpportunitiesBean extends CRMBean {
 		this.date = date;
 	}
 
-	public String getSaleStatus() {
-		return saleStatus;
+	public String getStatus() {
+		return Status;
 	}
 
-	public void setSaleStatus(String saleStatus) {
-		this.saleStatus = saleStatus;
+	public void setStatus(String Status) {
+		this.Status = Status;
 	}
 
 	public long getClient() {
@@ -58,13 +57,8 @@ public class OpportunitiesBean extends CRMBean {
 		this.client = id;
 	}
 	
-	@Override
-	public String getDescription() { 
-		return saleDescription + "-" + saleStatus; 
-	}
-	
 	public String toString() {
-		return this.getId() + ": " + this.getSaleDescription() + " " + this.getSaleStatus();
+		return this.getId() + ": " + this.getDescription() + " " + this.getStatus();
 	}
 	
 	public boolean equals(Object o) {

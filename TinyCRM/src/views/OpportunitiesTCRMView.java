@@ -10,15 +10,15 @@ public interface OpportunitiesTCRMView extends TCRMView{
 
 	String getTextId();
 	String getTextDate();
-	String getTextSaleDescription();
+	String getTextDescription();
 	String getTextDollarQuantity();
-	String getTextSaleStatus();
+	String getTextStatus();
 	
 	void setTextId(String textId);
 	void setTextDate(String textDate);
-	void setTextSaleDescription(String textSaleDescription);
+	void setTextDescription(String textDescription);
 	void setTextDollarQuantity(String textDollarQuantity);
-	void setTextSaleStatus(String textTelephoe);
+	void setTextStatus(String textTelephoe);
 
 
 	// TODO: Verify MVC compliance of these methods
@@ -28,15 +28,15 @@ public interface OpportunitiesTCRMView extends TCRMView{
 	void setSelectClientListener(ActionListener listener);
 	
 	String getErrorDate();
-	String getErrorSaleDescription();
+	String getErrorDescription();
 	String getErrorDollarQuantity();
-	String getErrorSaleStatus();
+	String getErrorStatus();
 
 	
 	void setErrorDate(String errorDate);
-	void setErrorSaleDescription(String errorSaleDescription);
+	void setErrorDescription(String errorDescription);
 	void setErrorDollarQuantity(String errorDollarQuantity);
-	void setErrorSaleStatus(String errorSaleStatus);
+	void setErrorStatus(String errorStatus);
 	
 
 }

@@ -79,9 +79,9 @@ public class OpportunitiesController extends CRMController {
 	public void validateForm() throws InvalidFormFieldData {
 		getValidationErrors().clear();
 		validateDate();
-		validateSaleDescription();
+		validateDescription();
 		validateDollarQuantity();
-		validateSaleStatus();
+		validateStatus();
 		if (getValidationErrors().size() > 0)
 			throw new InvalidFormFieldData ("Invalid Form");
 	}
@@ -92,10 +92,10 @@ public class OpportunitiesController extends CRMController {
 			addValidationError("Date", "Empty Date. Required Field.");
 		}
 	}
-	public void validateSaleDescription() throws InvalidFormFieldData {
+	public void validateDescription() throws InvalidFormFieldData {
 		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
-		if (view.getTextSaleDescription().trim().length() == 0) {
-			addValidationError("SaleDescription", "Empty Sale Description. Required Field.");
+		if (view.getTextDescription().trim().length() == 0) {
+			addValidationError("Description", "Empty  Description. Required Field.");
 		}
 	}	
 	public void validateDollarQuantity() throws InvalidFormFieldData {
@@ -104,10 +104,10 @@ public class OpportunitiesController extends CRMController {
 			addValidationError("DollarQuantity", "Empty Dollar Quantity. Required Field.");
 		}
 	}	
-	public void validateSaleStatus() throws InvalidFormFieldData {
+	public void validateStatus() throws InvalidFormFieldData {
 		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
-		if (view.getTextSaleStatus().trim().length() == 0) {
-			addValidationError("SaleStatus", "Empty Sale Status. Required Field.");
+		if (view.getTextStatus().trim().length() == 0) {
+			addValidationError("Status", "Empty  Status. Required Field.");
 		}
 	}
 
@@ -125,9 +125,9 @@ public class OpportunitiesController extends CRMController {
 		if (validationErrors.size() > 0) {
 			errorString = "Fields in red are invalid";
 			if (validationErrors.containsKey("Date")) { ov.setErrorDate(validationErrors.get("Date")); }
-			if (validationErrors.containsKey("SaleDescription")) { ov.setErrorSaleDescription(validationErrors.get("SaleDescription")); }
+			if (validationErrors.containsKey("Description")) { ov.setErrorDescription(validationErrors.get("Description")); }
 			if (validationErrors.containsKey("DollarQuantity")) { ov.setErrorDollarQuantity(validationErrors.get("DollarQuantity")); }
-			if (validationErrors.containsKey("SaleStatus")) { ov.setErrorSaleStatus(validationErrors.get("SaleStatus")); }
+			if (validationErrors.containsKey("Status")) { ov.setErrorStatus(validationErrors.get("Status")); }
 			ov.setMessagesText(errorString);
 		}
 	}

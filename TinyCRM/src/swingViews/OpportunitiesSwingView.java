@@ -59,17 +59,17 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 
 	private JTextField textId;
 	private JTextField textDate;
-	private JTextField textSaleDescription;
+	private JTextField textDescription;
 	private JTextField textDollarQuantity;
 	private JComboBox<ClientForComboBox> comboBoxClient;
-	private JTextField textSaleStatus;
+	private JTextField textStatus;
 
 	private JLabel idLblError;
 	private JLabel dateLblError;
-	private JLabel saleDescriptionLblError;
+	private JLabel DescriptionLblError;
 	private JLabel dollarQuantityLblError;
 	private JLabel clientLblError;
-	private JLabel saleStatusLblError;
+	private JLabel StatusLblError;
 
 	/**
 	 * Create the frame.
@@ -121,7 +121,7 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 		gbc_IdLblError.gridy = 1;
 		centerGrid.add(idLblError, gbc_IdLblError);
 
-		JLabel lblDate = new JLabel("  Estimated Closing Date");
+		JLabel lblDate = new JLabel("Closing Date");
 		lblDate.setHorizontalAlignment(SwingConstants.RIGHT);
 		GridBagConstraints gbc_lblDate = new GridBagConstraints();
 		gbc_lblDate.anchor = GridBagConstraints.EAST;
@@ -151,36 +151,36 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 		gbc_dateLblbError.gridy = 3;
 		centerGrid.add(dateLblError, gbc_dateLblbError);
 
-		JLabel lblSaleDescription = new JLabel("Sale Description");
-		lblSaleDescription.setHorizontalAlignment(SwingConstants.RIGHT);
-		GridBagConstraints gbc_lblSaleDescription = new GridBagConstraints();
-		gbc_lblSaleDescription.anchor = GridBagConstraints.EAST;
-		gbc_lblSaleDescription.insets = new Insets(0, 0, 5, 5);
-		gbc_lblSaleDescription.gridx = 0;
-		gbc_lblSaleDescription.gridy = 4;
-		centerGrid.add(lblSaleDescription, gbc_lblSaleDescription);
+		JLabel lblDescription = new JLabel(" Description");
+		lblDescription.setHorizontalAlignment(SwingConstants.RIGHT);
+		GridBagConstraints gbc_lblDescription = new GridBagConstraints();
+		gbc_lblDescription.anchor = GridBagConstraints.EAST;
+		gbc_lblDescription.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDescription.gridx = 0;
+		gbc_lblDescription.gridy = 4;
+		centerGrid.add(lblDescription, gbc_lblDescription);
 
-		textSaleDescription = new JTextField();
-		textSaleDescription.setEditable(false);
-		GridBagConstraints gbc_textSaleDescription = new GridBagConstraints();
-		gbc_textSaleDescription.insets = new Insets(0, 0, 5, 0);
-		gbc_textSaleDescription.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textSaleDescription.gridx = 1;
-		gbc_textSaleDescription.gridy = 4;
-		centerGrid.add(textSaleDescription, gbc_textSaleDescription);
-		textSaleDescription.setColumns(10);
+		textDescription = new JTextField();
+		textDescription.setEditable(false);
+		GridBagConstraints gbc_textDescription = new GridBagConstraints();
+		gbc_textDescription.insets = new Insets(0, 0, 5, 0);
+		gbc_textDescription.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textDescription.gridx = 1;
+		gbc_textDescription.gridy = 4;
+		centerGrid.add(textDescription, gbc_textDescription);
+		textDescription.setColumns(10);
 
-		saleDescriptionLblError = new JLabel("New label");
-		saleDescriptionLblError.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		saleDescriptionLblError.setForeground(Color.RED);
-		GridBagConstraints gbc_saleDescriptionLblError = new GridBagConstraints();
-		gbc_saleDescriptionLblError.anchor = GridBagConstraints.WEST;
-		gbc_saleDescriptionLblError.insets = new Insets(0, 0, 5, 0);
-		gbc_saleDescriptionLblError.gridx = 1;
-		gbc_saleDescriptionLblError.gridy = 5;
-		centerGrid.add(saleDescriptionLblError, gbc_saleDescriptionLblError);
+		DescriptionLblError = new JLabel("New label");
+		DescriptionLblError.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		DescriptionLblError.setForeground(Color.RED);
+		GridBagConstraints gbc_DescriptionLblError = new GridBagConstraints();
+		gbc_DescriptionLblError.anchor = GridBagConstraints.WEST;
+		gbc_DescriptionLblError.insets = new Insets(0, 0, 5, 0);
+		gbc_DescriptionLblError.gridx = 1;
+		gbc_DescriptionLblError.gridy = 5;
+		centerGrid.add(DescriptionLblError, gbc_DescriptionLblError);
 
-		JLabel lblDollarQuantity = new JLabel("Monetary Value ($)");
+		JLabel lblDollarQuantity = new JLabel("Value/Cost");
 		GridBagConstraints gbc_lblDollarQuantity = new GridBagConstraints();
 		gbc_lblDollarQuantity.anchor = GridBagConstraints.EAST;
 		gbc_lblDollarQuantity.insets = new Insets(0, 0, 5, 5);
@@ -237,34 +237,34 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 		centerGrid.add(clientLblError, gbc_clientLblError);
 		//comboBoxClient.setColumns(10);
 
-		JLabel lblSaleStatus = new JLabel("Sale Status");
-		GridBagConstraints gbc_lblSaleStatus = new GridBagConstraints();
-		gbc_lblSaleStatus.anchor = GridBagConstraints.EAST;
-		gbc_lblSaleStatus.insets = new Insets(0, 0, 5, 5);
-		gbc_lblSaleStatus.gridx = 0;
-		gbc_lblSaleStatus.gridy = 10;
-		centerGrid.add(lblSaleStatus, gbc_lblSaleStatus);
+		JLabel lblStatus = new JLabel(" Status");
+		GridBagConstraints gbc_lblStatus = new GridBagConstraints();
+		gbc_lblStatus.anchor = GridBagConstraints.EAST;
+		gbc_lblStatus.insets = new Insets(0, 0, 5, 5);
+		gbc_lblStatus.gridx = 0;
+		gbc_lblStatus.gridy = 10;
+		centerGrid.add(lblStatus, gbc_lblStatus);
 
-		textSaleStatus = new JTextField();
-		textSaleStatus.setEditable(false);
-		textSaleStatus.setToolTipText("");
-		GridBagConstraints gbc_textSaleStatus = new GridBagConstraints();
-		gbc_textSaleStatus.insets = new Insets(0, 0, 5, 0);
-		gbc_textSaleStatus.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textSaleStatus.gridx = 1;
-		gbc_textSaleStatus.gridy = 10;
-		centerGrid.add(textSaleStatus, gbc_textSaleStatus);
-		textSaleStatus.setColumns(10);
+		textStatus = new JTextField();
+		textStatus.setEditable(false);
+		textStatus.setToolTipText("");
+		GridBagConstraints gbc_textStatus = new GridBagConstraints();
+		gbc_textStatus.insets = new Insets(0, 0, 5, 0);
+		gbc_textStatus.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textStatus.gridx = 1;
+		gbc_textStatus.gridy = 10;
+		centerGrid.add(textStatus, gbc_textStatus);
+		textStatus.setColumns(10);
 
-		saleStatusLblError = new JLabel("New label");
-		saleStatusLblError.setForeground(Color.RED);
-		saleStatusLblError.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		GridBagConstraints gbc_saleStatusLblError = new GridBagConstraints();
-		gbc_saleStatusLblError.anchor = GridBagConstraints.WEST;
-		gbc_saleStatusLblError.insets = new Insets(0, 0, 5, 0);
-		gbc_saleStatusLblError.gridx = 1;
-		gbc_saleStatusLblError.gridy = 11;
-		centerGrid.add(saleStatusLblError, gbc_saleStatusLblError);
+		StatusLblError = new JLabel("New label");
+		StatusLblError.setForeground(Color.RED);
+		StatusLblError.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		GridBagConstraints gbc_StatusLblError = new GridBagConstraints();
+		gbc_StatusLblError.anchor = GridBagConstraints.WEST;
+		gbc_StatusLblError.insets = new Insets(0, 0, 5, 0);
+		gbc_StatusLblError.gridx = 1;
+		gbc_StatusLblError.gridy = 11;
+		centerGrid.add(StatusLblError, gbc_StatusLblError);
 
 		this.setMessagesText("No Opportunities in the CRM"); 
 
@@ -272,15 +272,15 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 
 	public String getTextId()        { return textId.getText(); }
 	public String getTextDate() { return textDate.getText(); }
-	public String getTextSaleDescription()  { return textSaleDescription.getText(); }
+	public String getTextDescription()  { return textDescription.getText(); }
 	public String getTextDollarQuantity()   { return textDollarQuantity.getText(); }
-	public String getTextSaleStatus() { return textSaleStatus.getText(); }
+	public String getTextStatus() { return textStatus.getText(); }
 
 	public void setTextId(String textId)               { this.textId.setText(textId); }
 	public void setTextDate(String textDate) { this.textDate.setText(textDate); }
-	public void setTextSaleDescription(String textSaleDescription)   { this.textSaleDescription.setText(textSaleDescription); }
+	public void setTextDescription(String textDescription)   { this.textDescription.setText(textDescription); }
 	public void setTextDollarQuantity(String textDollarQuantity)     { this.textDollarQuantity.setText(textDollarQuantity); }
-	public void setTextSaleStatus(String textSaleStatus)  { this.textSaleStatus.setText(textSaleStatus); }
+	public void setTextStatus(String textStatus)  { this.textStatus.setText(textStatus); }
 	
 	public int getSelectedClientIndex() {
 		return comboBoxClient.getSelectedIndex();
@@ -306,20 +306,20 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 	}
 
 	public String getErrorDate() { return dateLblError.getText(); }
-	public String getErrorSaleDescription() { return saleDescriptionLblError.getText(); }
+	public String getErrorDescription() { return DescriptionLblError.getText(); }
 	public String getErrorDollarQuantity()   { return dollarQuantityLblError.getText(); }
-	public String getErrorSaleStatus() { return saleStatusLblError.getText(); }
+	public String getErrorStatus() { return StatusLblError.getText(); }
 	
 	public void setErrorDate(String errorDate) { dateLblError.setText(errorDate); }
-	public void setErrorSaleDescription(String errorSaleDescription)   { saleDescriptionLblError.setText(errorSaleDescription); }
+	public void setErrorDescription(String errorDescription)   { DescriptionLblError.setText(errorDescription); }
 	public void setErrorDollarQuantity(String errorDollarQuantity)     { dollarQuantityLblError.setText(errorDollarQuantity); }
-	public void setErrorSaleStatus(String errorSaleStatus) { saleStatusLblError.setText(errorSaleStatus); }
+	public void setErrorStatus(String errorStatus) { StatusLblError.setText(errorStatus); }
 	
 	public void beanToForm(CRMBean bean) {
 		OpportunitiesBean ob = (OpportunitiesBean) bean;
 		this.setTextId(""+ob.getId());
 		this.setTextDate(ob.getDate());
-		this.setTextSaleDescription(ob.getSaleDescription());
+		this.setTextDescription(ob.getDescription());
 		this.setTextDollarQuantity(ob.getDollarQuantity());
 		for (int i=0; i < comboBoxClient.getItemCount(); i++) {
 			ClientForComboBox item = comboBoxClient.getItemAt(i);
@@ -327,55 +327,55 @@ public class OpportunitiesSwingView extends SwingView implements OpportunitiesTC
 				this.setSelectedClientIndex(i);
 			}
 		}
-		this.setTextSaleStatus(ob.getSaleStatus());
+		this.setTextStatus(ob.getStatus());
 	}
 
 	public void formToBean(CRMBean bean) {
 		OpportunitiesBean ob = (OpportunitiesBean) bean;
 		//cb.setId(Integer.parseInt(textId.getText()));  // Id is never editable
 		ob.setDate(textDate.getText());
-		ob.setSaleDescription(textSaleDescription.getText());
+		ob.setDescription(textDescription.getText());
 		ob.setDollarQuantity(textDollarQuantity.getText());
 		ob.setClient(((ClientForComboBox) comboBoxClient.getSelectedItem()).getId());
-		ob.setSaleStatus(textSaleStatus.getText());
+		ob.setStatus(textStatus.getText());
 	}
 
 	public void enableEditMode() { 
 		super.enableEditMode();
 		//textId.setEditable(true);
 		textDate.setEditable(true);
-		textSaleDescription.setEditable(true);
+		textDescription.setEditable(true);
 		textDollarQuantity.setEditable(true);
 		comboBoxClient.setEnabled(true);
-		textSaleStatus.setEditable(true);
+		textStatus.setEditable(true);
 	}
 	
 	public void disableEditMode() {
 		super.disableEditMode();
 		textId.setEditable(false);
 		textDate.setEditable(false);
-		textSaleDescription.setEditable(false);
+		textDescription.setEditable(false);
 		textDollarQuantity.setEditable(false);
 		comboBoxClient.setEnabled(false);
-		textSaleStatus.setEditable(false);
+		textStatus.setEditable(false);
 	}
 
 	public void clearForm() {
 		textId.setText("");
 		textDate.setText("");
-		textSaleDescription.setText("");
+		textDescription.setText("");
 		textDollarQuantity.setText("");
 		if (comboBoxClient.getItemCount() > 0) { comboBoxClient.setSelectedIndex(0); }
-		textSaleStatus.setText("");
+		textStatus.setText("");
 		clearFieldErrors();
 	}
 
 	public void clearFieldErrors() {
 		idLblError.setText("");
 		dateLblError.setText("");
-		saleDescriptionLblError.setText("");
+		DescriptionLblError.setText("");
 		dollarQuantityLblError.setText("");
 		clientLblError.setText("");
-		saleStatusLblError.setText("");
+		StatusLblError.setText("");
 	}
 }

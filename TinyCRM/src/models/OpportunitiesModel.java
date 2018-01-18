@@ -47,7 +47,7 @@ public class OpportunitiesModel extends CRMModel {
 			id = ((OpportunitiesBean) this.getBean(this.getCount()-1)).getId() + 1;
 		}
 		this.getAllBeans().add(new OpportunitiesBean(id));
-		this.setIndex(this.getCount() - 1);  // New record becomes the current one
+		this.setIndex(this.getCount() - 1);  
 	}
 
 //	@Override
@@ -74,22 +74,22 @@ public class OpportunitiesModel extends CRMModel {
 			inputScanner.nextLine();  // Ignore header line
 			int count = 0;
 			inputScanner.useDelimiter("[\t\n]");
-			while (inputScanner.hasNextLine()) { //aqui estableces el orden en el que se leen las cosas del file
+			while (inputScanner.hasNextLine()) { 
 				String ID = inputScanner.next();
 				int id = Integer.parseInt(ID);
 				OpportunitiesBean newBean = new OpportunitiesBean(id);
 				String date = inputScanner.next();
 				newBean.setDate(date);
-				String saleDescription = inputScanner.next();
-				newBean.setSaleDescription(saleDescription);
+				String Description = inputScanner.next();
+				newBean.setDescription(Description);
 				String dollarQuantity = inputScanner.next();
 				newBean.setDollarQuantity(dollarQuantity);
-				String client = inputScanner.next();
-				int clientId = Integer.parseInt(client);
-				newBean.setClient(clientId);
-				String saleStatus = inputScanner.next();
-				newBean.setSaleStatus(saleStatus);
-				inputScanner.nextLine();  // Skip over anything left in line
+//				String client = inputScanner.next();
+//				int clientId = Integer.parseInt(client);
+//				newBean.setClient(clientId);
+				String Status = inputScanner.next();
+				newBean.setStatus(Status);
+				inputScanner.nextLine(); 
 				opportunitiesBeans.add(newBean);
 				count++;
 			}
@@ -109,18 +109,18 @@ public class OpportunitiesModel extends CRMModel {
 		result += '\t';
 		result += ob.getDate();
 		result += '\t';
-		result += ob.getSaleDescription();
+		result += ob.getDescription();
 		result += '\t';
 		result += ob.getDollarQuantity();
 		result += '\t';
-		if (ob.getClient() < 0) {
-			result += "-1";
-		}
-		else {
-			result += ""+ob.getClient();
-		}
+//		if (ob.getClient() < 0) {
+//			result += "-1";
+//		}
+//		else {
+//			result += ""+ob.getClient();
+//		}
 		result += '\t';
-		result += ob.getSaleStatus();
+		result += ob.getStatus();
 		return result;
 		
 	}
