@@ -8,23 +8,25 @@ import exceptions.InvalidFormFieldData;
 import main.CRMMain;
 import models.CRMModel;
 import models.ClientModel;
-import models.OpportunitiesModel;
+import swingViews.ContactSwingView;
 import swingViews.OpportunitiesSwingView;
 import swingViews.SwingView;
+import views.ContactTCRMView;
 import views.OpportunitiesTCRMView;
+import views.TCRMView;
 
-public class OpportunitiesController extends CRMController{
+public class OpportunitiesController extends CRMController {
 
 	public OpportunitiesController(SwingView opportunitiesView, CRMModel opportunitiesModel, CRMModel clientModel) {
 		super(opportunitiesView, opportunitiesModel);
-		
-		OpportunitiesSwingView cv = (OpportunitiesSwingView) opportunitiesView;
-		//ContactModel cm = (ContactModel) contactModel;
-		OpportunitiesModel OpportunitiesModel2 = (OpportunitiesModel) opportunitiesModel;
 
-		cv.setSelectOpportunitiesListener(OpportunitiesModel2.getAllBeans());
-		cv.clearFieldErrors();
-		cv.setSelectOpportunitiesListener(new ActionListener() {
+		OpportunitiesSwingView ov = (OpportunitiesSwingView) opportunitiesView;
+		//ContactModel cm = (ContactModel) contactModel;
+		ClientModel clientModel2 = (ClientModel) clientModel;
+
+		ov.setSelectClientItems(clientModel2.getAllBeans());
+		ov.clearFieldErrors();
+		ov.setSelectClientListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Opportunities Combo Box Selected");
 			}
@@ -61,6 +63,7 @@ public class OpportunitiesController extends CRMController{
 	public void doDelete() {
 		System.out.println("OpportunitiesController.doDelete()");
 		super.doDelete();
+		super.doSave();
 	}
 
 	public void doSave() {
@@ -72,31 +75,60 @@ public class OpportunitiesController extends CRMController{
 		this.refreshView();
 	}
 
+	//*cuidado con esto*//
+	public void validateForm() throws InvalidFormFieldData {
+		getValidationErrors().clear();
+		validateDate();
+		validateSaleDescription();
+		validateDollarQuantity();
+		validateSaleStatus();
+		if (getValidationErrors().size() > 0)
+			throw new InvalidFormFieldData ("Invalid Form");
+	}
+
+	public void validateDate() throws InvalidFormFieldData {
+		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
+		if (view.getTextDate().trim().length() == 0) {
+			addValidationError("Date", "Empty Date. Required Field.");
+		}
+	}
+	public void validateSaleDescription() throws InvalidFormFieldData {
+		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
+		if (view.getTextSaleDescription().trim().length() == 0) {
+			addValidationError("SaleDescription", "Empty Sale Description. Required Field.");
+		}
+	}	
+	public void validateDollarQuantity() throws InvalidFormFieldData {
+		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
+		if (view.getTextDollarQuantity().trim().length() == 0) {
+			addValidationError("DollarQuantity", "Empty Dollar Quantity. Required Field.");
+		}
+	}	
+	public void validateSaleStatus() throws InvalidFormFieldData {
+		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
+		if (view.getTextSaleStatus().trim().length() == 0) {
+			addValidationError("SaleStatus", "Empty Sale Status. Required Field.");
+		}
+	}
+
 	public void refreshDropdowns() {
+		OpportunitiesTCRMView ov = (OpportunitiesTCRMView) getView();
+		ov.setSelectClientItems(CRMMain.clientModel.getAllBeans());
 	}
 
 	protected void refreshView() {
 		super.refreshView();
 		String errorString;
-		OpportunitiesSwingView cv = (OpportunitiesSwingView) getView();
-		cv.clearFieldErrors();
+		OpportunitiesSwingView ov = (OpportunitiesSwingView) getView();
+		ov.clearFieldErrors();
 		Map<String, String> validationErrors = getValidationErrors();
 		if (validationErrors.size() > 0) {
 			errorString = "Fields in red are invalid";
-			if (validationErrors.containsKey("FirstName")) { cv.setErrorFirstName(validationErrors.get("FirstName")); }
-			if (validationErrors.containsKey("LastName")) { cv.setErrorLastName(validationErrors.get("LastName")); }
-			if (validationErrors.containsKey("Company")) { cv.setErrorCompany(validationErrors.get("Company")); }
-			if (validationErrors.containsKey("Telephone")) { cv.setErrorTelephone(validationErrors.get("Telephone")); }
-			if (validationErrors.containsKey("Email")) { cv.setErrorEmail(validationErrors.get("Email")); }
-			if (validationErrors.containsKey("Facebook")) { cv.setErrorFacebook(validationErrors.get("Facebook")); }
-			cv.setMessagesText(errorString);
+			if (validationErrors.containsKey("Date")) { ov.setErrorDate(validationErrors.get("Date")); }
+			if (validationErrors.containsKey("SaleDescription")) { ov.setErrorSaleDescription(validationErrors.get("SaleDescription")); }
+			if (validationErrors.containsKey("DollarQuantity")) { ov.setErrorDollarQuantity(validationErrors.get("DollarQuantity")); }
+			if (validationErrors.containsKey("SaleStatus")) { ov.setErrorSaleStatus(validationErrors.get("SaleStatus")); }
+			ov.setMessagesText(errorString);
 		}
 	}
-
-	@Override
-	public void validateForm() throws InvalidFormFieldData {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

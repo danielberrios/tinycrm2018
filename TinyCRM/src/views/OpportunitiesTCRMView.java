@@ -9,39 +9,34 @@ public interface OpportunitiesTCRMView extends TCRMView{
 
 
 	String getTextId();
-	String getTextFirstName();
-	String getTextLastName();
-	String getTextCompany();
-	String getTextTelephone();
-	String getTextEmail();
-	String getTextFacebook();
+	String getTextDate();
+	String getTextSaleDescription();
+	String getTextDollarQuantity();
+	String getTextSaleStatus();
 	
 	void setTextId(String textId);
-	void setTextFirstName(String textFirstName);
-	void setTextLastName(String textLastName);
-	void setTextCompany(String textCompany);
-	void setTextTelephone(String textTelephoe);
-	void setTextEmail(String textEmail);
-	void setTextFacebook(String textFacebook);
+	void setTextDate(String textDate);
+	void setTextSaleDescription(String textSaleDescription);
+	void setTextDollarQuantity(String textDollarQuantity);
+	void setTextSaleStatus(String textTelephoe);
+
 
 	// TODO: Verify MVC compliance of these methods
-	int getSelectedOpportunitiestIndex();
-	void setSelectedOpportunitiesIndex(int index);
-	void setSelectOpportunitiesItems(ArrayList<CRMBean> list);
-	void setSelectOpportunitiesListener(ActionListener listener);
+	int getSelectedClientIndex();
+	void setSelectedClientIndex(int index);
+	void setSelectClientItems(ArrayList<CRMBean> list);
+	void setSelectClientListener(ActionListener listener);
 	
-	String getErrorFirstName();
-	String getErrorLasttName();
-	String getErrorCompany();
-	String getErrorTelephone();
-	String getErrorEmail();
-	String getErrorFacebook();
+	String getErrorDate();
+	String getErrorSaleDescription();
+	String getErrorDollarQuantity();
+	String getErrorSaleStatus();
+
 	
-	void setErrorFirstName(String errorFirstName);
-	void setErrorLastName(String errorLastName);
-	void setErrorCompany(String errorCompany);
-	void setErrorTelephone(String errorTelephone);
-	void setErrorEmail(String errorEmail);
-	void setErrorFacebook(String errorFacebok);
+	void setErrorDate(String errorDate);
+	void setErrorSaleDescription(String errorSaleDescription);
+	void setErrorDollarQuantity(String errorDollarQuantity);
+	void setErrorSaleStatus(String errorSaleStatus);
+	
 
 }
