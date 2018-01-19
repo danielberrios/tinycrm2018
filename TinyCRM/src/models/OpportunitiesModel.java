@@ -35,10 +35,10 @@ public class OpportunitiesModel extends CRMModel {
 //		super.doRight();
 //	}
 
-//	@Override
-//	public void doEdit() {
-//		super.doEdit();
-//	}
+	@Override
+	public void doEdit() {
+		super.doEdit();
+	}
 
 	@Override
 	public void doAdd() {
@@ -119,7 +119,7 @@ public class OpportunitiesModel extends CRMModel {
 //		else {
 //			result += ""+ob.getClient();
 //		}
-		result += '\t';
+//		result += '\t';
 		result += ob.getStatus();
 		return result;
 		
