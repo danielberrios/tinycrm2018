@@ -46,6 +46,7 @@ public class NewContactController extends ContactController {
 		}
 		
 	}
+	@Override
 	public void validateLastName() throws InvalidFormFieldData {
 		ContactTCRMView view = (ContactTCRMView) getView();
 		String t = view.getTextLastName().trim();
