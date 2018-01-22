@@ -82,8 +82,8 @@ public class OpportunitiesModel extends CRMModel {
 				newBean.setDate(date);
 				String Description = inputScanner.next();
 				newBean.setDescription(Description);
-				String dollarQuantity = inputScanner.next();
-				newBean.setDollarQuantity(dollarQuantity);
+				String Cost = inputScanner.next();
+				newBean.setCost(Cost);
 //				String client = inputScanner.next();
 //				int clientId = Integer.parseInt(client);
 //				newBean.setClient(clientId);
@@ -111,7 +111,7 @@ public class OpportunitiesModel extends CRMModel {
 		result += '\t';
 		result += ob.getDescription();
 		result += '\t';
-		result += ob.getDollarQuantity();
+		result += ob.getCost();
 		result += '\t';
 //		if (ob.getClient() < 0) {
 //			result += "-1";

@@ -11,13 +11,13 @@ public interface OpportunitiesTCRMView extends TCRMView{
 	String getTextId();
 	String getTextDate();
 	String getTextDescription();
-	String getTextDollarQuantity();
+	String getTextCost();
 	String getTextStatus();
 	
 	void setTextId(String textId);
 	void setTextDate(String textDate);
 	void setTextDescription(String textDescription);
-	void setTextDollarQuantity(String textDollarQuantity);
+	void setTextCost(String textCost);
 	void setTextStatus(String textTelephoe);
 
 
@@ -29,13 +29,13 @@ public interface OpportunitiesTCRMView extends TCRMView{
 	
 	String getErrorDate();
 	String getErrorDescription();
-	String getErrorDollarQuantity();
+	String getErrorCost();
 	String getErrorStatus();
 
 	
 	void setErrorDate(String errorDate);
 	void setErrorDescription(String errorDescription);
-	void setErrorDollarQuantity(String errorDollarQuantity);
+	void setErrorCost(String errorCost);
 	void setErrorStatus(String errorStatus);
 	
 

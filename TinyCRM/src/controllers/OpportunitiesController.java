@@ -80,7 +80,7 @@ public class OpportunitiesController extends CRMController {
 		getValidationErrors().clear();
 		validateDate();
 		validateDescription();
-		validateDollarQuantity();
+		validateCost();
 		validateStatus();
 		if (getValidationErrors().size() > 0)
 			throw new InvalidFormFieldData ("Invalid Form");
@@ -98,10 +98,10 @@ public class OpportunitiesController extends CRMController {
 			addValidationError("Description", "Empty  Description. Required Field.");
 		}
 	}	
-	public void validateDollarQuantity() throws InvalidFormFieldData {
+	public void validateCost() throws InvalidFormFieldData {
 		OpportunitiesTCRMView view = (OpportunitiesTCRMView) getView();
-		if (view.getTextDollarQuantity().trim().length() == 0) {
-			addValidationError("DollarQuantity", "Empty Dollar Quantity. Required Field.");
+		if (view.getTextCost().trim().length() == 0) {
+			addValidationError("Cost", "Empty Dollar Quantity. Required Field.");
 		}
 	}	
 	public void validateStatus() throws InvalidFormFieldData {
@@ -126,7 +126,7 @@ public class OpportunitiesController extends CRMController {
 			errorString = "Fields in red are invalid";
 			if (validationErrors.containsKey("Date")) { ov.setErrorDate(validationErrors.get("Date")); }
 			if (validationErrors.containsKey("Description")) { ov.setErrorDescription(validationErrors.get("Description")); }
-			if (validationErrors.containsKey("DollarQuantity")) { ov.setErrorDollarQuantity(validationErrors.get("DollarQuantity")); }
+			if (validationErrors.containsKey("Cost")) { ov.setErrorCost(validationErrors.get("Cost")); }
 			if (validationErrors.containsKey("Status")) { ov.setErrorStatus(validationErrors.get("Status")); }
 			ov.setMessagesText(errorString);
 		}
