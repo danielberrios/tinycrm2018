@@ -3,7 +3,7 @@ package beans;
 public class OpportunitiesBean extends CRMBean {
 
 	private String Description;
-	private String dollarQuantity;
+	private String Cost;
 	private String date; //maybe should be stored in numbers? or like a string but we parse it?
 	private long client;
 	private String Status;
@@ -12,7 +12,7 @@ public class OpportunitiesBean extends CRMBean {
 		super(id);
 		date = "";
 		Description = "";
-		dollarQuantity = "";
+		Cost = "";
 		client = -1;
 		Status = "";
 	}
@@ -25,12 +25,12 @@ public class OpportunitiesBean extends CRMBean {
 		this.Description = Description;
 	}
 
-	public String getDollarQuantity() {
-		return dollarQuantity;
+	public String getCost() {
+		return Cost;
 	}
 
-	public void setDollarQuantity(String dollarQuantity) {
-		this.dollarQuantity = dollarQuantity;
+	public void setCost(String Cost) {
+		this.Cost = Cost;
 	}
 
 	public String getDate() {
