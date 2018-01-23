@@ -75,7 +75,6 @@ public class OpportunitiesController extends CRMController {
 		this.refreshView();
 	}
 
-	//*cuidado con esto*//
 	public void validateForm() throws InvalidFormFieldData {
 		getValidationErrors().clear();
 		validateDate();

@@ -1,16 +1,9 @@
 package controllers;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import exceptions.InvalidFormFieldData;
-import main.CRMMain;
 import models.CRMModel;
-import models.ClientModel;
-import swingViews.ContactSwingView;
 import swingViews.SwingView;
 import views.ContactTCRMView;
 
@@ -46,6 +39,7 @@ public class NewContactController extends ContactController {
 		}
 		
 	}
+	
 	@Override
 	public void validateLastName() throws InvalidFormFieldData {
 		ContactTCRMView view = (ContactTCRMView) getView();
@@ -107,10 +101,7 @@ public class NewContactController extends ContactController {
 		if (view.getTextEmail().trim().length() == 0) {
 			addValidationError("Email", "Empty Email. Required Field.");
 		}
-		else if (m.matches()) {
-			
-		}
-		else {
+		else if (!m.matches()) {
 			addValidationError("Email", "Invalid Email. Required Field.");
 		}
 	}
